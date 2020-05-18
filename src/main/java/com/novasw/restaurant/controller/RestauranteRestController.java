@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.novasw.restaurant.domain.Restaurante;
+import com.novasw.restaurant.exception.RestauranteNotFoundException;
+import com.novasw.restaurant.request.RestauranteRegistration;
 import com.novasw.restaurant.response.RestauranteResponse;
 import com.novasw.restaurant.service.RestauranteService;
 
@@ -45,14 +47,14 @@ public class RestauranteRestController {
 
    
     @GetMapping("/{id}")
-    public ResponseEntity<RestauranteResponse> findById(@PathVariable("id") String id) {
+    public ResponseEntity<RestauranteResponse> findById(@PathVariable("id") int id) {
         RestauranteResponse restauranteResponse =restauranteService.findById(id);
         return ResponseEntity.ok(restauranteResponse);
     }
 
     
     @PostMapping("/save")
-    public ResponseEntity<RestauranteResponse> save(@Valid @RequestBody final Restaurante restaurante) {
+    public ResponseEntity<RestauranteResponse> save(@Valid @RequestBody final RestauranteRegistration restaurante) {
 
         RestauranteResponse persistedRestaurante = restauranteService.save(restaurante);
         return ResponseEntity.status(HttpStatus.CREATED).body(persistedRestaurante);

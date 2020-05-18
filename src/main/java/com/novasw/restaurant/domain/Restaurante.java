@@ -17,6 +17,7 @@ public class Restaurante {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
  
+  private String nombre;
   private String  provincia_región;
   private String  Dirección;
   private String  información_adicional;
@@ -56,6 +57,16 @@ public int getId() {
 
 public void setId(int id) {
 	this.id = id;
+}
+
+
+public String getNombre() {
+	return nombre;
+}
+
+
+public void setNombre(String nombre) {
+	this.nombre = nombre;
 }
 
 
