@@ -1,36 +1,41 @@
-package com.novasw.restaurant.response;
+package com.novasw.restaurant.request;
 
-public class RestauranteResponse {
+import javax.validation.constraints.NotBlank;
 
-	private int id;
-	private String nombre;
+public class RestauranteRegistration {
+	
+	@NotBlank(message = "El campo PROVINCIA no debe estar vacío")
 	private String  provincia_región;
+	@NotBlank(message = "El campo NOMBRE no debe estar vacío")
+	private String nombre;
+	@NotBlank(message = "El campo DIRECCION no debe estar vacío")
 	private String  Dirección;
+	@NotBlank(message = "El campo INFORMACION no debe estar vacío")
 	private String  información_adicional;
+	@NotBlank(message = "El campo TELEFONO no debe estar vacío")
 	private String  Teléfono;
+	@NotBlank(message = "El campo DIRECCION WEB no debe estar vacío")
 	private String  Direccion_web;
+	@NotBlank(message = "El campo EMAIL no debe estar vacío")
 	private String  correo_electronico;
+	@NotBlank(message = "El campo PUBLICIDAD no debe estar vacío")
 	private String  publicidad_web;
+	@NotBlank(message = "El campo CATEGORIA no debe estar vacío")
 	private String  Categoría;
+	@NotBlank(message = "El campo DESCRIPCION no debe estar vacío")
 	private String  descripcion;
 	
-	public int getId() {
-		return id;
+	public String getProvincia_región() {
+		return provincia_región;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setProvincia_región(String provincia_región) {
+		this.provincia_región = provincia_región;
 	}
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-	public String getProvincia_región() {
-		return provincia_región;
-	}
-	public void setProvincia_región(String provincia_región) {
-		this.provincia_región = provincia_región;
 	}
 	public String getDirección() {
 		return Dirección;
